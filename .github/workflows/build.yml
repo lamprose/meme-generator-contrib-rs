@@ -47,8 +47,8 @@ jobs:
         with:
           name: "meme-generator-contrib-${{ matrix.platform.label }}"
           path: |
-            target/${{ matrix.platform.target }}/release/libmeme_generator_contrib*
-            !target/${{ matrix.platform.target }}/release/libmeme_generator_contrib.d
+            target/${{ matrix.platform.target }}/release/*.so
+            target/${{ matrix.platform.target }}/release/*.dll
 
   build_linux:
     runs-on: ${{ matrix.platform.runner }}
@@ -76,5 +76,5 @@ jobs:
         with:
           name: "meme-generator-contrib-${{ matrix.platform.label }}"
           path: |
-            target/${{ matrix.platform.target }}/release/libmeme_generator_contrib*
-            !target/${{ matrix.platform.target }}/release/libmeme_generator_contrib.d
+            target/${{ matrix.platform.target }}/release/*.so
+            target/${{ matrix.platform.target }}/release/*.dll
