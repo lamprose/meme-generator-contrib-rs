@@ -1,0 +1,20 @@
+[package]
+name = "meme_generator_contrib"
+description = "Meme generator extra memes"
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+inventory = "0.3"
+serde = "1.0"
+skia-safe = { version = "0.80", features = ["textlayout"] }
+
+meme_generator_core = "0.0.1"
+meme_generator_utils = ">=0.0.2"
