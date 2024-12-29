@@ -10,3 +10,10 @@ readme = "README.md"
 homepage = "https://github.com/MemeCrafters/meme-generator-contrib-rs"
 repository = "https://github.com/MemeCrafters/meme-generator-contrib-rs"
 edition = "2021"
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
