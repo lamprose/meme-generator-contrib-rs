@@ -1,8 +1,6 @@
-[workspace]
-members = ["meme_generator_contrib"]
-resolver = "2"
-
-[workspace.package]
+[package]
+name = "meme_generator_contrib"
+description = "Meme generator extra memes"
 version = "0.0.1"
 authors = ["meetwq <meetwq@gmail.com>"]
 license = "MIT"
@@ -10,6 +8,17 @@ readme = "README.md"
 homepage = "https://github.com/MemeCrafters/meme-generator-contrib-rs"
 repository = "https://github.com/MemeCrafters/meme-generator-contrib-rs"
 edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+inventory = "0.3"
+serde = "1.0"
+skia-safe = { version = "0.80", features = ["textlayout"] }
+
+meme_generator_core = ">=0.0.2"
+meme_generator_utils = ">=0.0.3"
 
 [profile.release]
 strip = true

@@ -2,7 +2,7 @@ use skia_safe::Image;
 
 use meme_generator_core::error::Error;
 use meme_generator_utils::{
-    builder::DecodedImage,
+    builder::NamedImage,
     encoder::{make_gif_or_combined_gif, GifInfo},
     image::ImageExt,
     tools::{load_image, local_date, new_surface},
@@ -10,7 +10,7 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-fn bite(images: &mut Vec<DecodedImage>, _: &Vec<String>, _: &NoOptions) -> Result<Vec<u8>, Error> {
+fn bite(images: Vec<NamedImage>, _: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let locs = [
         (90, 90, 105, 150),
         (90, 83, 96, 172),
@@ -20,7 +20,7 @@ fn bite(images: &mut Vec<DecodedImage>, _: &Vec<String>, _: &NoOptions) -> Resul
         (90, 90, 106, 151),
     ];
 
-    let func = |i: usize, images: &Vec<Image>| {
+    let func = |i: usize, images: Vec<Image>| {
         let frame = load_image(&format!("bite/{i:02}.png"))?;
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();

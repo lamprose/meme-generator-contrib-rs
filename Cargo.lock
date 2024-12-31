@@ -376,9 +376,9 @@ dependencies = [
 
 [[package]]
 name = "meme_generator_core"
-version = "0.0.1"
+version = "0.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cfb1bfeccd6fe5eb10e92a4ef2ca6bb63e8aba5a58d8c0f4adc27676462aacd3"
+checksum = "3937f42289cfdb98588e44920d3917e075c3590933eaf62a2045b724f7a4cc08"
 dependencies = [
  "chrono",
  "directories",
@@ -388,9 +388,9 @@ dependencies = [
 
 [[package]]
 name = "meme_generator_utils"
-version = "0.0.2"
+version = "0.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c71a8af1c148f72bb878ecb4719f67f73fdee785770d92e0713e4729034880aa"
+checksum = "0f4b51fe80aaed859fb1fc96ceb848f56df1347d887fc72bde2d3ab8b22c38bc"
 dependencies = [
  "chrono",
  "gif",
@@ -404,9 +404,9 @@ dependencies = [
 
 [[package]]
 name = "meme_options_derive"
-version = "0.0.3"
+version = "0.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "17419f5735faefffb7d3d67b2c105902de415ca4a5e6383e2bd534a0fe86a262"
+checksum = "bb51f89baba731d560c3fdd913264dd872ba44fa0caafcb628369f423197569c"
 dependencies = [
  "proc-macro2",
  "quote",

@@ -2,7 +2,7 @@ use skia_safe::Image;
 
 use meme_generator_core::error::Error;
 use meme_generator_utils::{
-    builder::{DecodedImage, MemeOptions},
+    builder::{MemeOptions, NamedImage},
     encoder::{make_gif_or_combined_gif, FrameAlign, GifInfo},
     image::ImageExt,
     tools::{load_image, local_date, new_surface},
@@ -14,14 +14,14 @@ use crate::register_meme;
 struct Fps {
     /// gif帧率
     #[option(long, minimum = 5, maximum = 50, default = 20)]
-    fps: i32,
+    fps: Option<i32>,
 }
 
-fn do_(images: &mut Vec<DecodedImage>, _: &Vec<String>, options: &Fps) -> Result<Vec<u8>, Error> {
+fn do_(images: Vec<NamedImage>, _: Vec<String>, options: Fps) -> Result<Vec<u8>, Error> {
     let self_locs = [(116, -8), (109, 3), (130, -10)];
     let user_locs = [(2, 177), (12, 172), (6, 158)];
 
-    let func = |i: usize, images: &Vec<Image>| {
+    let func = |i: usize, images: Vec<Image>| {
         let self_head = images[0].circle().resize_exact((122, 122)).rotate(-15.0);
         let user_head = images[1].circle().resize_exact((112, 112)).rotate(-90.0);
         let image = load_image(format!("do/{i}.png"))?;
@@ -38,7 +38,7 @@ fn do_(images: &mut Vec<DecodedImage>, _: &Vec<String>, options: &Fps) -> Result
         func,
         GifInfo {
             frame_num: 3,
-            duration: 1.0 / options.fps as f32,
+            duration: 1.0 / options.fps.unwrap() as f32,
         },
         FrameAlign::ExtendLoop,
     )
