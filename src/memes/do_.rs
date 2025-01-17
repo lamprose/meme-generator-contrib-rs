@@ -2,7 +2,7 @@ use skia_safe::Image;
 
 use meme_generator_core::error::Error;
 use meme_generator_utils::{
-    builder::{MemeOptions, NamedImage},
+    builder::{InputImage, MemeOptions},
     encoder::{make_gif_or_combined_gif, FrameAlign, GifInfo},
     image::ImageExt,
     tools::{load_image, local_date, new_surface},
@@ -17,7 +17,7 @@ struct Fps {
     fps: Option<i32>,
 }
 
-fn do_(images: Vec<NamedImage>, _: Vec<String>, options: Fps) -> Result<Vec<u8>, Error> {
+fn do_(images: Vec<InputImage>, _: Vec<String>, options: Fps) -> Result<Vec<u8>, Error> {
     let self_locs = [(116, -8), (109, 3), (130, -10)];
     let user_locs = [(2, 177), (12, 172), (6, 158)];
 

@@ -17,12 +17,11 @@ inventory = "0.3"
 serde = "1.0"
 skia-safe = { version = "0.80", features = ["textlayout"] }
 
-meme_generator_core = ">=0.0.2"
-meme_generator_utils = ">=0.0.3"
+meme_generator_core = "0.0.3"
+meme_generator_utils = "0.0.5"
 
 [profile.release]
 strip = true
 opt-level = "z"
 lto = true
 codegen-units = 1
-panic = "abort"
