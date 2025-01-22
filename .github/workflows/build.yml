@@ -60,6 +60,10 @@ jobs:
             container: ghcr.io/memecrafters/meme-generator-build-container:latest
             target: x86_64-unknown-linux-gnu
             label: linux-x86_64
+          - runner: ubuntu-24.04-arm
+            container: ghcr.io/memecrafters/meme-generator-build-container:arm64
+            target: aarch64-unknown-linux-gnu
+            label: linux-aarch64
 
     steps:
       - uses: actions/checkout@v4
