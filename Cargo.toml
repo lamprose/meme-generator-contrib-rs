@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/MemeCrafters/meme-generator-contrib-rs"
 repository = "https://github.com/MemeCrafters/meme-generator-contrib-rs"
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib"]
@@ -18,7 +18,7 @@ serde = "1.0"
 skia-safe = { version = "0.80", features = ["textlayout"] }
 
 meme_generator_core = "0.0.4"
-meme_generator_utils = "0.0.6"
+meme_generator_utils = "0.0.7"
 
 [profile.release]
 strip = true
