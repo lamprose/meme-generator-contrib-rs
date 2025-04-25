@@ -6,7 +6,8 @@ use meme_generator_utils::{
     canvas::CanvasExt,
     encoder::make_png_or_gif,
     image::ImageExt,
-    tools::{load_image, local_date},
+    text_params,
+    tools::{load_image, local_date, new_paint},
 };
 
 use crate::{options::NoOptions, register_meme};
