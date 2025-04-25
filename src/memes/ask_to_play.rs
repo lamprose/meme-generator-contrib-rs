@@ -17,7 +17,7 @@ fn ask_to_play(
     texts: Vec<String>,
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
-    let frame = load_image("why_at_me/0.png")?;
+    let frame = load_image("ask_to_play/0.png")?;
 
     let text = &texts[0];
 
@@ -54,7 +54,7 @@ register_meme!(
     ask_to_play,
     min_images = 1,
     max_images = 1,
-    min_texts = 1,
+    min_texts = 0,
     max_texts = 1,
     default_texts = &["说 为什么@我"],
     keywords = &["为什么@我"],
