@@ -16,7 +16,7 @@ fn died_most_cai(images: Vec<InputImage>, _: Vec<String>, _: NoOptions) -> Resul
     let func = |images: Vec<Image>| {
         let mut surface = frame.to_surface();
         let canvas = surface.canvas();
-        let first_image = images[0].circle().resize_exact((44, 44)).rotate(-90);
+        let first_image = images[0].circle().resize_exact((44, 44)).rotate(-90.0);
         canvas.draw_image(&first_image, (24, 70), None);
         Ok(surface.image_snapshot())
     };
