@@ -18,7 +18,20 @@ fn ask_to_play(
     _: NoOptions,
 ) -> Result<Vec<u8>, Error> {
     let frame = load_image("why_at_me/0.png")?;
-    let text = texts[0];
+
+    let text = &texts[0];
+
+    let mut surface = frame.to_surface();
+    let canvas = surface.canvas();
+    canvas.draw_text_area_auto_font_size(
+        IRect::from_ltrb(80, 410, 182, 513),
+        text,
+        10.0,
+        50.0,
+        text_params!(paint = new_paint(Color::from_rgb(111, 95, 95))),
+    )?;
+    let frame = surface.image_snapshot();
+
     let func = |images: Vec<Image>| {
         let mut surface = frame.to_surface();
         let canvas = surface.canvas();
@@ -29,13 +42,7 @@ fn ask_to_play(
             .rotate_crop(-19.0);
         canvas.draw_image(&img, (42, 13), None);
         canvas.draw_image(&frame, (0, 0), None);
-        canvas.draw_text_area_auto_font_size(
-            IRect::from_ltrb(80, 410, 182, 513),
-            text,
-            25.0,
-            60.0,
-            text_params!(paint = new_paint(Color::from_rgb(111, 95, 95))),
-        );
+
         Ok(surface.image_snapshot())
     };
 
