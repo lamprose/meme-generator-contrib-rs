@@ -9,7 +9,7 @@ use meme_generator_utils::{
     tools::{load_image, local_date},
 };
 
-use crate::{options::NoOptions, register_meme, tags::MemeTags};
+use crate::{options::NoOptions, register_meme};
 
 fn ask_to_play(
     images: Vec<InputImage>,
