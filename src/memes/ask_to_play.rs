@@ -24,11 +24,11 @@ fn ask_to_play(
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();
     canvas.draw_text_area_auto_font_size(
-        IRect::from_ltrb(80, 410, 182, 513),
+        IRect::from_ltrb(80, 410, 382, 513),
         text,
         10.0,
-        50.0,
-        text_params!(paint = new_paint(Color::from_rgb(111, 95, 95))),
+        60.0,
+        text_params!(paint = new_paint(Color::from_rgb(0, 0, 0))),
     )?;
     let frame = surface.image_snapshot();
 
