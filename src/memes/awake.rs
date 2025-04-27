@@ -26,7 +26,7 @@ fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Ve
         let (x, y, d) = locs[i];
         let logo = images[0].circle().resize_exact((56, 56));
         let head = images[1].circle().resize_exact((51, 51)).rotate(d);
-        let frame = load_image(format!("beat_head/{i}.png"))?;
+        let frame = load_image(format!("awake/{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
         canvas.draw_image(&logo, (3, 3), None);
