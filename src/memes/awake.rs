@@ -52,7 +52,7 @@ fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Ve
         images,
         func,
         GifInfo {
-            frame_num: 3,
+            frame_num: 4,
             duration: 0.05,
         },
         FrameAlign::ExtendLoop,
@@ -68,6 +68,6 @@ register_meme!(
     max_texts = 1,
     default_texts = &[DEFAULT_TEXT],
     keywords = &["醒醒"],
-    date_created = local_date(2023, 3, 8),
-    date_modified = local_date(2023, 3, 8),
+    date_created = local_date(2025, 4, 27),
+    date_modified = local_date(2025, 4, 27),
 );
