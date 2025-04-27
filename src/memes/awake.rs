@@ -20,7 +20,12 @@ fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Ve
         DEFAULT_TEXT
     };
 
-    let locs = [(75, 44, -28.8), (66, 50, -39.77), (208, 166, 52.0)];
+    let locs = [
+        (54, 51, -28.8),
+        (46, 61, -39.77),
+        (42, 71, -51.54),
+        (45, 59, -39.35),
+    ];
 
     let func = |i: usize, images: Vec<Image>| {
         let (x, y, d) = locs[i];
