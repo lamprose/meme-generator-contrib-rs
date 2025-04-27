@@ -1,4 +1,5 @@
 mod ask_to_play;
+mod awake;
 mod behead;
 mod bite;
 mod cai;

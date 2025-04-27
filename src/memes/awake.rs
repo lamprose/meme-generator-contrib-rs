@@ -1,0 +1,68 @@
+use skia_safe::{IRect, Image};
+
+use meme_generator_core::error::Error;
+use meme_generator_utils::{
+    builder::InputImage,
+    canvas::CanvasExt,
+    encoder::{FrameAlign, GifInfo, make_gif_or_combined_gif},
+    image::ImageExt,
+    tools::{load_image, local_date, new_surface},
+};
+
+use crate::{options::NoOptions, register_meme};
+
+const DEFAULT_TEXT: &str = "怎么说话的你";
+
+fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
+    let text = if !texts.is_empty() {
+        &texts[0]
+    } else {
+        DEFAULT_TEXT
+    };
+
+    let locs = [(75, 44, -28.8), (66, 50, -39.77), (208, 166, 52)];
+
+    let func = |i: usize, images: Vec<Image>| {
+        let (x, y, d) = locs[i];
+        let logo = images[0].circle().resize_exact((56, 56));
+        let head = images[1].circle().resize_exact((51, 51)).rotate(d);
+        let frame = load_image(format!("beat_head/{i}.png"))?;
+        let mut surface = new_surface(frame.dimensions());
+        let canvas = surface.canvas();
+        canvas.draw_image(&logo, (3, 3), None);
+        canvas.draw_image(&head, (x, y), None);
+
+        canvas.draw_image(&frame, (0, 0), None);
+        canvas.draw_text_area_auto_font_size(
+            IRect::from_ltrb(0, 170, 210, 220),
+            text,
+            10.0,
+            50.0,
+            None,
+        )?;
+        Ok(surface.image_snapshot())
+    };
+
+    make_gif_or_combined_gif(
+        images,
+        func,
+        GifInfo {
+            frame_num: 3,
+            duration: 0.05,
+        },
+        FrameAlign::ExtendLoop,
+    )
+}
+
+register_meme!(
+    "awake",
+    awake,
+    min_images = 2,
+    max_images = 2,
+    min_texts = 0,
+    max_texts = 1,
+    default_texts = &[DEFAULT_TEXT],
+    keywords = &["醒醒"],
+    date_created = local_date(2023, 3, 8),
+    date_modified = local_date(2023, 3, 8),
+);
