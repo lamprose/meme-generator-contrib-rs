@@ -29,10 +29,10 @@ fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Ve
         let frame = load_image(format!("awake/{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
+        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&logo, (3, 3), None);
         canvas.draw_image(&head, (x, y), None);
 
-        canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(0, 170, 210, 220),
             text,
