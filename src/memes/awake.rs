@@ -11,7 +11,7 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
-const DEFAULT_TEXT: &str = "怎么说话的你";
+const DEFAULT_TEXT: &str = "上仙快醒醒,我们为你准备了大型氪金活动";
 
 fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec<u8>, Error> {
     let text = if !texts.is_empty() {
@@ -29,7 +29,7 @@ fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Ve
 
     let func = |i: usize, images: Vec<Image>| {
         let (x, y, d) = locs[i];
-        let logo = images[0].circle().resize_exact((56, 56));
+        let logo = images[0].round_corner(5.0).resize_exact((56, 56));
         let head = images[1].circle().resize_exact((51, 51)).rotate(d);
         let frame = load_image(format!("awake/{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());
