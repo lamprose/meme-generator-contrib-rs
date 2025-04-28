@@ -38,7 +38,7 @@ fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Ve
         if (images.len() == 3) {
             let head2 = images[2].circle().resize_exact((83, 83));
             canvas.clear(Color::WHITE);
-            canvas.draw_image(&head2, (116, 4), None)
+            canvas.draw_image(&head2, (116, 4), None);
         }
         canvas.draw_image(&frame, (0, 0), None);
         canvas.draw_image(&logo, (3, 3), None);
