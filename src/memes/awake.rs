@@ -1,4 +1,4 @@
-use skia_safe::{IRect, Image};
+use skia_safe::{Color, IRect, Image};
 
 use meme_generator_core::error::Error;
 use meme_generator_utils::{
@@ -35,7 +35,7 @@ fn awake(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Ve
         let frame = load_image(format!("awake/{pic_type}{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
-        if (images.len() == 3) {
+        if images.len() == 3 {
             let head2 = images[2].circle().resize_exact((83, 83));
             canvas.clear(Color::WHITE);
             canvas.draw_image(&head2, (116, 4), None);
