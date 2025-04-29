@@ -36,7 +36,10 @@ fn flog(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec
         let canvas = surface.canvas();
 
         canvas.draw_image(&frame, (0, 0), None);
-        canvas.draw_image(&head, (91, 311), None);
+        if !images.is_empty() {
+            let head = images[0].circle().resize_exact((157, 157));
+            canvas.draw_image(&head, (91, 311), None);
+        }
         canvas.draw_image(&teardrop, (0, 0), None);
 
         canvas.draw_text_area_auto_font_size(
