@@ -12,6 +12,8 @@ use meme_generator_utils::{
 
 use crate::{options::NoOptions, register_meme};
 
+const DEFAULT_TEXT: &str = "说 为什么@我";
+
 fn ask_to_play(
     images: Vec<InputImage>,
     texts: Vec<String>,
@@ -19,7 +21,11 @@ fn ask_to_play(
 ) -> Result<Vec<u8>, Error> {
     let frame = load_image("ask_to_play/0.png")?;
 
-    let text = &texts[0];
+    let text = if !texts.is_empty() {
+        &texts[0]
+    } else {
+        DEFAULT_TEXT
+    };
 
     let mut surface = frame.to_surface();
     let canvas = surface.canvas();
@@ -56,7 +62,7 @@ register_meme!(
     max_images = 1,
     min_texts = 0,
     max_texts = 1,
-    default_texts = &["说 为什么@我"],
+    default_texts = &[DEFAULT_TEXT],
     keywords = &["为什么@我"],
     date_created = local_date(2025, 4, 25),
     date_modified = local_date(2025, 4, 25),
