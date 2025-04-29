@@ -25,11 +25,6 @@ fn flog(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec
     };
 
     let func = |i: usize, images: Vec<Image>| {
-        let head = if images.is_empty() {
-            images[0].circle().resize_exact((157, 157))
-        } else {
-            None
-        };
         let frame = load_image(format!("flog/{i}.png"))?;
         let teardrop = load_image(format!("flog/1{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());
