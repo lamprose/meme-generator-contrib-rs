@@ -8,6 +8,7 @@ mod died_most_cai;
 mod do_;
 mod empathy;
 mod fleshlight;
+mod flog;
 mod jerk_off;
 mod lash;
 mod little_do;
