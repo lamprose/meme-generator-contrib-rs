@@ -1,4 +1,4 @@
-name: Build
+name: Build_For_Win
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
       - main
     paths:
       - "Cargo.toml"
-      - "meme_generator_contrib/**"
+      - "meme_generator_contrib_rs/**"
   pull_request_target:
     paths:
       - "Cargo.toml"
-      - "meme_generator_contrib/**"
+      - "meme_generator_contrib_rs/**"
   workflow_dispatch:
 
 permissions:

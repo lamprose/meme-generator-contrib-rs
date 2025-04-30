@@ -29,6 +29,7 @@ fn flog(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec
         let teardrop = load_image(format!("flog/1{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());
         let canvas = surface.canvas();
+        canvas.clear(Color::WHITE);
 
         canvas.draw_image(&frame, (0, 0), None);
         if !images.is_empty() {
