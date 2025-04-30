@@ -6,11 +6,11 @@ on:
       - main
     paths:
       - "Cargo.toml"
-      - "meme_generator_contrib_rs/**"
+      - "src/**"
   pull_request_target:
     paths:
       - "Cargo.toml"
-      - "meme_generator_contrib_rs/**"
+      - "src/**"
   workflow_dispatch:
 
 permissions:

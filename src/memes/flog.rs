@@ -19,12 +19,20 @@ fn flog(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec
     };
 
     let text = if !texts.is_empty() {
-        format!("{}", &texts[0])
+        &texts[0]
     } else {
-        format!("{name},干活!")
+        &format!("{name},干活!")
     };
+    let locs = [
+        (91, 311, 157, 157),
+        (90, 308, 153, 153),
+        (91, 311, 157, 157),
+        (90, 308, 153, 153),
+        (91, 311, 157, 157),
+    ];
 
     let func = |i: usize, images: Vec<Image>| {
+        let (x, y, w, h) = locs[i];
         let frame = load_image(format!("flog/{i}.png"))?;
         let teardrop = load_image(format!("flog/1{i}.png"))?;
         let mut surface = new_surface(frame.dimensions());
@@ -33,11 +41,10 @@ fn flog(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec
 
         canvas.draw_image(&frame, (0, 0), None);
         if !images.is_empty() {
-            let head = images[0].circle().resize_exact((157, 157));
-            canvas.draw_image(&head, (91, 311), None);
+            let head = images[0].circle().resize_exact((w, h));
+            canvas.draw_image(&head, (x, y), None);
         }
         canvas.draw_image(&teardrop, (0, 0), None);
-
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(0, 18, 805, 154),
             &text,
