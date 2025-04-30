@@ -21,9 +21,9 @@ fn want_this(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Resul
     };
 
     let text = if !texts.is_empty() {
-        texts[0]
+        &texts[0]
     } else {
-        format!("{name}我要这个")
+        &format!("{name}我要这个")
     };
 
     let func = |images: Vec<Image>| {
@@ -36,7 +36,7 @@ fn want_this(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Resul
 
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(0, 139, 198, 176),
-            &text,
+            text,
             10.0,
             60.0,
             text_params!(paint = new_paint(Color::from_rgb(0, 0, 0))),
