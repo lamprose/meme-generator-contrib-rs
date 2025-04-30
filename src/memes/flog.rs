@@ -60,7 +60,7 @@ fn flog(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec
         func,
         GifInfo {
             frame_num: 5,
-            duration: 0.05,
+            duration: 0.02,
         },
         FrameAlign::ExtendLoop,
     )
