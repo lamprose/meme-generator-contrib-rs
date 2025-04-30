@@ -47,7 +47,7 @@ fn flog(images: Vec<InputImage>, texts: Vec<String>, _: NoOptions) -> Result<Vec
         canvas.draw_image(&teardrop, (0, 0), None);
         canvas.draw_text_area_auto_font_size(
             IRect::from_ltrb(0, 18, 805, 154),
-            &text,
+            text,
             10.0,
             50.0,
             None,
